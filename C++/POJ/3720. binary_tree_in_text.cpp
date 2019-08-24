@@ -29,7 +29,7 @@ public:
     BinaryTree() : root_(nullptr), cur_depth_(0) {
         prev_.reserve(kMaxSize + 1);
     }
-    ~BinaryTree() { DeleteTree(root_); }
+    ~BinaryTree() { DeleteTree(); }
 
     void AddNode(const std::string& node) {
         size_t depth = node.length() - 1;
@@ -37,7 +37,7 @@ public:
 
         if (!depth) {
             if (root_) {
-                DeleteTree(root_);
+                DeleteTree();
                 prev_.clear();
             }
             root_ = new Node<T>(val);
@@ -61,6 +61,11 @@ public:
     }
 
     void Preorder() { Preorder(root_); }
+    void Inorder() { Inorder(root_); }
+    void Postorder() { Postorder(root_); }
+    void DeleteTree() { DeleteTree(root_); }
+
+protected:
     void Preorder(Node<T>* root) {
         if (!root) return;
         Print(root);
@@ -68,7 +73,6 @@ public:
         Preorder(root->right_);
     }
 
-    void Inorder() { Inorder(root_); }
     void Inorder(Node<T>* root) {
         if (!root) return;
         Inorder(root->left_);
@@ -76,7 +80,6 @@ public:
         Inorder(root->right_);
     }
 
-    void Postorder() { Postorder(root_); }
     void Postorder(Node<T>* root) {
         if (!root) return;
         Postorder(root->left_);
