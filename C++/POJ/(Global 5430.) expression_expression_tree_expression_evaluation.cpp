@@ -6,8 +6,6 @@
 #include <string>
 #include <vector>
 
-class ExpressionTree;
-
 template <class T>
 class Node {
 public:
