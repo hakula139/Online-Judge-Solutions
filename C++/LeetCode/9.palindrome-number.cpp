@@ -12,7 +12,7 @@ class Solution {
     if (x == 0) return true;
     if (x % 10 == 0) return false;
 
-    auto reversed_x = 0ll;
+    auto reversed_x = 0LL;
     for (auto r = x; r > 0; r /= 10) {
       reversed_x = reversed_x * 10 + r % 10;
     }

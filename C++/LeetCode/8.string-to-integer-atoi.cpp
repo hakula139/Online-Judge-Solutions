@@ -13,7 +13,7 @@ class Solution {
   int myAtoi(const std::string& s) {
     bool is_positive = true;
     bool is_leading = true;
-    auto result = 0ll;
+    auto result = 0LL;
 
     for (auto c : s) {
       if (c >= '0' && c <= '9') {
