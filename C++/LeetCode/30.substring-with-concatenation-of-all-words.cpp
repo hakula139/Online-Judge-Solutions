@@ -12,8 +12,8 @@
 
 class Solution {
  public:
-  std::vector<int> findSubstring(const std::string& s,
-                                 const std::vector<std::string>& words) {
+  std::vector<int> findSubstring(
+      const std::string& s, const std::vector<std::string>& words) {
     auto word_len = words[0].size();
     auto window_len = word_len * words.size();
     if (s.size() < window_len) return {};

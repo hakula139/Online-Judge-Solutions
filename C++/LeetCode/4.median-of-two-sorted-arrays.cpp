@@ -10,8 +10,8 @@
 
 class Solution {
  public:
-  double findMedianSortedArrays(const std::vector<int>& nums1,
-                                const std::vector<int>& nums2) {
+  double findMedianSortedArrays(
+      const std::vector<int>& nums1, const std::vector<int>& nums2) {
     if (nums1.size() > nums2.size()) {
       return findMedianSortedArrays(nums2, nums1);
     }

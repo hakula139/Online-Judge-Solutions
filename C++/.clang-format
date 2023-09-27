@@ -3,3 +3,4 @@ BasedOnStyle: Google
 
 PenaltyBreakAssignment: 60
 PenaltyBreakBeforeFirstCallParameter: 0
+PenaltyIndentedWhitespace: 8

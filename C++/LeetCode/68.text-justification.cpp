@@ -10,8 +10,8 @@
 
 class Solution {
  public:
-  std::vector<std::string> fullJustify(std::vector<std::string>& words,
-                                       int max_width) {
+  std::vector<std::string> fullJustify(
+      std::vector<std::string>& words, int max_width) {
     std::vector<std::string> result;
     std::vector<std::string> line;
     int cur_width = 0;

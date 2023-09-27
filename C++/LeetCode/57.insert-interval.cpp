@@ -10,8 +10,9 @@
 
 class Solution {
  public:
-  std::vector<std::vector<int>> insert(std::vector<std::vector<int>>& intervals,
-                                       std::vector<int>& new_interval) {
+  std::vector<std::vector<int>> insert(
+      std::vector<std::vector<int>>& intervals,
+      std::vector<int>& new_interval) {
     std::vector<std::vector<int>> result;
     auto it = intervals.begin();
     for (; it < intervals.end() && (*it)[1] < new_interval[0]; ++it) {
