@@ -1,4 +1,12 @@
-# Cpp
+## Customized ##
+
+.vscode/
+bin/
+build/
+*.log
+
+
+## Cpp ##
 
 # Prerequisites
 *.d
@@ -32,9 +40,3 @@
 *.exe
 *.out
 *.app
-
-
-# Customized
-
-.vscode/
-bin/
