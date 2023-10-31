@@ -16,9 +16,6 @@ class Solution {
   }
 
  private:
-  std::vector<std::string> result_;
-  std::string buf_;
-
   void generateParenthesis(int open, int close) {
     if (!open && !close) {
       result_.push_back(buf_);
@@ -35,5 +32,8 @@ class Solution {
       buf_.pop_back();
     }
   }
+
+  std::vector<std::string> result_;
+  std::string buf_;
 };
 // @lc code=end
