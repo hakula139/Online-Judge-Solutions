@@ -8,6 +8,7 @@ struct Node {
   int val;
   Node* next;
   Node* random;
+  Node() : val(0), next(nullptr), random(nullptr) {}
   explicit Node(int val) : val(val), next(nullptr), random(nullptr) {}
 };
 
