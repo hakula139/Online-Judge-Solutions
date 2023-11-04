@@ -16,8 +16,8 @@ struct ListNode {
 class Solution {
  public:
   ListNode* removeNthFromEnd(ListNode* head, int n) {
-    auto dummy = new ListNode{-1, head};
-    ListNode *slow = dummy, *fast = dummy;
+    ListNode dummy{-1, head};
+    auto slow = &dummy, fast = &dummy;
     for (int i = 0; i <= n; ++i) {
       fast = fast->next;
     }
@@ -29,10 +29,7 @@ class Solution {
     auto del_node = slow->next;
     slow->next = del_node->next;
     delete del_node;
-
-    head = dummy->next;
-    delete dummy;
-    return head;
+    return dummy.next;
   }
 };
 // @lc code=end

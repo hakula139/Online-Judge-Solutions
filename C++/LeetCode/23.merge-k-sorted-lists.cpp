@@ -13,41 +13,33 @@ struct ListNode {
 };
 
 // @lc code=start
-#include <functional>
 #include <queue>
 #include <vector>
 
-bool CompareListNode(ListNode* lhs, ListNode* rhs) {
-  return !lhs || rhs && lhs->val > rhs->val;
-}
+struct CompareListNode {
+  bool operator()(ListNode* lhs, ListNode* rhs) {
+    return !lhs || rhs && lhs->val > rhs->val;
+  }
+};
 
 class Solution {
  public:
   ListNode* mergeKLists(const std::vector<ListNode*>& lists) {
-    std::priority_queue<ListNode*, std::vector<ListNode*>,
-                        std::function<bool(ListNode*, ListNode*)>>
-        heads{CompareListNode};
-    for (auto head : lists) {
-      if (head) {
-        heads.push(head);
-      }
-    }
-
-    auto dummy = new ListNode{-1};
-    ListNode* merged_h = dummy;
+    std::priority_queue<ListNode*, std::vector<ListNode*>, CompareListNode>
+        heads(lists.begin(), lists.end());
+    ListNode dummy;
+    auto merged_h = &dummy;
     while (heads.size()) {
       auto min_h = heads.top();
       heads.pop();
+      if (!min_h) continue;
       merged_h->next = min_h;
       merged_h = merged_h->next;
       if (min_h->next) {
         heads.push(min_h->next);
       }
     }
-
-    merged_h = dummy->next;
-    delete dummy;
-    return merged_h;
+    return dummy.next;
   }
 };
 // @lc code=end

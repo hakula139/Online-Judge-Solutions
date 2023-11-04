@@ -16,9 +16,8 @@ struct ListNode {
 class Solution {
  public:
   ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
-    auto dummy = new ListNode{-1};
-    ListNode *i = l1, *j = l2, *k = dummy;
-
+    ListNode dummy;
+    auto i = l1, j = l2, k = &dummy;
     while (i || j) {
       int sum = 0;
       if (i) {
@@ -40,10 +39,7 @@ class Solution {
         k->next = new ListNode{1};
       }
     }
-
-    k = dummy->next;
-    delete dummy;
-    return k;
+    return dummy.next;
   }
 };
 // @lc code=end

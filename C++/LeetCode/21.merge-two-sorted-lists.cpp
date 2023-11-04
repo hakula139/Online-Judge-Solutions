@@ -16,10 +16,10 @@ struct ListNode {
 class Solution {
  public:
   ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-    auto dummy = new ListNode{-1};
-    ListNode *h1 = list1, *h2 = list2, *h = dummy;
+    ListNode dummy;
+    auto h1 = list1, h2 = list2, h = &dummy;
     while (h1 && h2) {
-      if (h1->val <= h2->val) {
+      if (h1->val < h2->val) {
         h->next = h1;
         h1 = h1->next;
       } else {
@@ -29,10 +29,7 @@ class Solution {
       h = h->next;
     }
     h->next = h1 ? h1 : h2;
-
-    h = dummy->next;
-    delete dummy;
-    return h;
+    return dummy.next;
   }
 };
 // @lc code=end
