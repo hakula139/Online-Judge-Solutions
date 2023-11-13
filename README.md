@@ -4,7 +4,7 @@ My solutions for Online Judge problems.
 
 ## Contributors
 
-- [**Hakula Chen**](https://github.com/hakula139)<[i@hakula.xyz](mailto:i@hakula.xyz)> - Fudan University
+- [**Hakula Chen**](https://github.com/hakula139)<[i@hakula.xyz](mailto:i@hakula.xyz)>
 
 ## License
 
