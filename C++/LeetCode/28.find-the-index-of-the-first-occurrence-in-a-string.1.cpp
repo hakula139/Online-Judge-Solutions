@@ -12,9 +12,7 @@ class Solution {
  public:
   int strStr(const std::string& haystack, const std::string& needle) {
     std::vector<int> lps(needle.size());
-
-    int j = 0;
-    for (int i = 1; i < needle.size(); ++i) {
+    for (int i = 1, j = 0; i < needle.size(); ++i) {
       while (j > 0 && needle[i] != needle[j]) {
         j = lps[j - 1];
       }

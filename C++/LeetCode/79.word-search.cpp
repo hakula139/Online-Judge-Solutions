@@ -47,16 +47,14 @@ class Solution {
     if (j < 0 || j >= board[0].size()) return false;
     if (board[i][j] == ' ') return false;
     if (board[i][j] != word[k]) return false;
+    if (++k == word.size()) return true;
 
     auto saved_c = board[i][j];
     board[i][j] = ' ';
-    if (++k == word.size()) return true;
-
     if (dfs(board, i + 1, j, word, k)) return true;
     if (dfs(board, i, j + 1, word, k)) return true;
     if (dfs(board, i - 1, j, word, k)) return true;
     if (dfs(board, i, j - 1, word, k)) return true;
-
     board[i][j] = saved_c;
     return false;
   }
