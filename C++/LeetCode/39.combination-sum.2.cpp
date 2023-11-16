@@ -12,27 +12,26 @@ class Solution {
   std::vector<std::vector<int>> combinationSum(
       const std::vector<int>& candidates, int target) {
     std::vector<std::vector<int>> result;
-    std::vector<int> combinations;
-    dfs(candidates, 0, target, result, combinations);
+    std::vector<int> combination;
+    bt(result, combination, candidates, 0, target);
     return result;
   }
 
  private:
-  void dfs(const std::vector<int>& candidates, int candidate_i, int target,
-           std::vector<std::vector<int>>& result,
-           std::vector<int>& combinations) {
+  void bt(std::vector<std::vector<int>>& result, std::vector<int>& combination,
+          const std::vector<int>& candidates, int i, int target) {
     if (target == 0) {
-      result.emplace_back(combinations);
+      result.emplace_back(combination);
       return;
     }
     if (target < 0) return;
-    if (candidate_i >= candidates.size()) return;
+    if (i >= candidates.size()) return;
 
-    auto candidate = candidates[candidate_i];
-    combinations.push_back(candidate);
-    dfs(candidates, candidate_i, target - candidate, result, combinations);
-    combinations.pop_back();
-    dfs(candidates, candidate_i + 1, target, result, combinations);
+    auto candidate = candidates[i];
+    combination.push_back(candidate);
+    bt(result, combination, candidates, i, target - candidate);
+    combination.pop_back();
+    bt(result, combination, candidates, i + 1, target);
   }
 };
 // @lc code=end

@@ -11,32 +11,30 @@
 class Solution {
  public:
   std::vector<std::vector<int>> combinationSum2(
-      const std::vector<int>& candidates, int target) {
+      std::vector<int>& candidates, int target) {
     std::vector<std::vector<int>> result;
-    std::vector<int> combinations;
-    auto sorted_candidates = candidates;
-    std::sort(sorted_candidates.begin(), sorted_candidates.end());
-    dfs(sorted_candidates, 0, target, result, combinations);
+    std::vector<int> combination;
+    std::sort(candidates.begin(), candidates.end());
+    bt(result, combination, candidates, 0, target);
     return result;
   }
 
  private:
-  void dfs(const std::vector<int>& candidates, int candidate_i, int target,
-           std::vector<std::vector<int>>& result,
-           std::vector<int>& combinations) {
+  void bt(std::vector<std::vector<int>>& result, std::vector<int>& combination,
+          const std::vector<int>& candidates, int i, int target) {
     if (target == 0) {
-      result.emplace_back(combinations);
+      result.emplace_back(combination);
       return;
     }
 
-    for (int i = candidate_i; i < candidates.size(); ++i) {
-      if (i > candidate_i && candidates[i] == candidates[i - 1]) continue;
-      auto candidate = candidates[i];
+    for (int j = i; j < candidates.size(); ++j) {
+      if (j > i && candidates[j] == candidates[j - 1]) continue;
+      auto candidate = candidates[j];
       if (target < candidate) break;
 
-      combinations.push_back(candidate);
-      dfs(candidates, i + 1, target - candidate, result, combinations);
-      combinations.pop_back();
+      combination.push_back(candidate);
+      bt(result, combination, candidates, j + 1, target - candidate);
+      combination.pop_back();
     }
   }
 };

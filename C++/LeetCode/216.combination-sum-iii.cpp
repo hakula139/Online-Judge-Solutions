@@ -1,32 +1,35 @@
 /*
- * @lc app=leetcode id=77 lang=cpp
+ * @lc app=leetcode id=216 lang=cpp
  *
- * [77] Combinations
+ * [216] Combination Sum III
  */
 
 // @lc code=start
+#include <algorithm>
 #include <vector>
 
 class Solution {
  public:
-  std::vector<std::vector<int>> combine(int n, int k) {
+  std::vector<std::vector<int>> combinationSum3(int k, int n) {
     std::vector<std::vector<int>> result;
     std::vector<int> combination;
     combination.reserve(k);
-    bt(result, combination, 1, n, k);
+    bt(result, combination, 0, k, n);
     return result;
   }
 
  private:
   void bt(std::vector<std::vector<int>>& result, std::vector<int>& combination,
-          int i, int n, int k) {
-    if (!k) {
+          int i, int k, int n) {
+    if (n == 0 && k == 0) {
       result.push_back(combination);
       return;
     }
-    for (int j = i; j <= n; ++j) {
+
+    int j_max = std::min(n, 10 - k);
+    for (int j = i + 1; j <= j_max; ++j) {
       combination.push_back(j);
-      bt(result, combination, j + 1, n, k - 1);
+      bt(result, combination, j, k - 1, n - j);
       combination.pop_back();
     }
   }
