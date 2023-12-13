@@ -30,7 +30,7 @@ class Solution {
             continue;
           case '-':
             is_positive = false;
-            // fallthrough
+            [[fallthrough]];
           case '+':
             is_leading = false;
             break;

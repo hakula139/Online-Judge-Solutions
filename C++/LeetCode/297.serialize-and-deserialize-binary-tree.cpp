@@ -57,7 +57,7 @@ class Codec {
           node = new TreeNode{is_positive ? val : -val};
           val = 0;
           is_positive = true;
-          // fallthrough
+          [[fallthrough]];
         case '/':
           if (q.empty()) {
             root = node;
