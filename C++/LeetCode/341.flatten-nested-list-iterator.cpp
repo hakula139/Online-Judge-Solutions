@@ -27,6 +27,8 @@ class NestedInteger {
 };
 
 // @lc code=start
+#include <cassert>
+
 class NestedIterator {
  public:
   using It = std::vector<NestedInteger>::const_iterator;

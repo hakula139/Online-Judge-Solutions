@@ -6,6 +6,7 @@
 
 // @lc code=start
 #include <algorithm>
+#include <cassert>
 #include <string>
 
 class Solution {
