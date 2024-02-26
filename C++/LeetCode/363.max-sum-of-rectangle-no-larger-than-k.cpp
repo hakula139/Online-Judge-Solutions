@@ -17,7 +17,7 @@ class Solution {
     for (int l = 0; l < m; ++l) {
       std::vector<int> col_sums(n);
       for (int r = l; r < m; ++r) {
-        // Kadane's Algorithm
+        // Kadane's algorithm
         int cur_sum = 0, max_sum = INT_MIN;
         for (int i = 0; i < n; ++i) {
           col_sums[i] += matrix[r][i];
