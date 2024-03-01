@@ -39,13 +39,13 @@ class Solution {
     }
 
     int result = 0, max_height = 0;
-    const std::vector<Pair> directions{{1, 0}, {0, 1}, {-1, 0}, {0, -1}};
+    const std::vector dirs{1, 0, -1, 0, 1};
     while (q.size()) {
       auto [i0, j0] = q.top();
       q.pop();
       max_height = std::max(height_map[i0][j0], max_height);
-      for (const auto& [di, dj] : directions) {
-        auto i = i0 + di, j = j0 + dj;
+      for (int k = 0; k < 4; ++k) {
+        auto i = i0 + dirs[k], j = j0 + dirs[k + 1];
         if (i >= 0 && i < m && j >= 0 && j < n && !visited[i][j]) {
           visit(i, j);
           result += std::max(max_height - height_map[i][j], 0);
