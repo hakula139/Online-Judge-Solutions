@@ -5,6 +5,7 @@
  */
 
 // @lc code=start
+#include <algorithm>
 #include <utility>
 #include <vector>
 
