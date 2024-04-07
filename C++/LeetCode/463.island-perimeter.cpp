@@ -15,10 +15,13 @@ class Solution {
     for (int i = 0; i < m; ++i) {
       for (int j = 0; j < n; ++j) {
         if (!grid[i][j]) continue;
-        if (i == m - 1 || !grid[i + 1][j]) ++result;
-        if (j == n - 1 || !grid[i][j + 1]) ++result;
-        if (i == 0 || !grid[i - 1][j]) ++result;
-        if (j == 0 || !grid[i][j - 1]) ++result;
+        result += 4;
+        if (i > 0 && grid[i - 1][j]) {
+          result -= 2;
+        }
+        if (j > 0 && grid[i][j - 1]) {
+          result -= 2;
+        }
       }
     }
     return result;
